@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	char me [] = "_putchar\n";
+	char me[] = "_putchar\n";
 	int i;
 
 	for (i = 0; me[i] != '\0'; i++)
