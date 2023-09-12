@@ -8,7 +8,6 @@ This repository contains a collection of C programs that demonstrate various con
 2. [📝 List of Programs](#list-of-programs)
 3. [🚀 How to Use](#how-to-use)
 4. [🌟 Advanced Programs](#advanced-programs)
-5. [👨‍💻 Author](#author)
 
 ## 📜 Requirements
 - GCC (GNU Compiler Collection) 🖥️
