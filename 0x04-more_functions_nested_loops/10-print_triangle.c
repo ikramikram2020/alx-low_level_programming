@@ -5,18 +5,21 @@
  * @size: the size of the triangle
  */
 
-void print_triangle(int size);
-
 void print_triangle(int size)
 {
-	int i, j, k;
+	int row, colomn;
 
-	for (i = 1; i <= size; i++)
+	for (row = 1; row <= size; row++)
 	{
-		for (j = 1; j <= size - i; j++)
-			_putchar(' ');
-		for (k = 1; k <= i; k++)
-			_putchar('#');
+		for (colomn = 1; colomn <= size; colomn++)
+		{
+			if (colomn <= size - row)
+				_putchar(' ');
+			else
+				_putchar('#');
+		}
 		_putchar('\n');
 	}
+	if (size <= 0)
+		putchar('\n');
 }
