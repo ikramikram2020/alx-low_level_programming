@@ -1,20 +1,19 @@
 #include "main.h"
-/*
- *print_most_numbers - check the code.
- *
- *Return: Always
+
+/**
+ * more_numbers - Print numbers from 0 to 14, ten times
  */
-void more_numbers(void);
+void more_numbers(void)
 {
-	int main() {
     int i, j;
 
-    for (i = 0; i < 10; i++) { 
-        for (j = 1; j <= 14; j++) { 
-            printf("%d ", j);
+    for (i = 0; i < 10; i++) { // Outer loop runs 10 times
+        for (j = 0; j <= 14; j++) { // Inner loop prints numbers from 0 to 14
+            if (j > 9) {
+                _putchar((j / 10) + '0'); // Print the tens digit
+            }
+            _putchar((j % 10) + '0'); // Print the ones digit
         }
-        printf("\n"); 
+        _putchar('\n'); // Print a newline after each set of numbers
     }
-
-    return 0;
 }
