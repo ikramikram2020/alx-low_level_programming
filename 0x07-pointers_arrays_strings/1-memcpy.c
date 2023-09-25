@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <string.h>
 /**
  * _memcpy - copies memory area.
  * @dest: memory area to copy to.
