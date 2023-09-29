@@ -5,6 +5,8 @@
  * @s: The input string
  * This function can calculates the length of a
  * string by using  recursively
+ *  Base case: if the current character is the null terminator, return 0
+ *  Recursively call _strlen_recursion with the next character
  * Return: The length of the string
  */
 int _strlen_recursion(char *s)
