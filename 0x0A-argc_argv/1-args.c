@@ -4,9 +4,7 @@
  * main-print number of arguments passed
  * @argc: num of commandline
  * @argv: pointer to aarray of commandline
- *
- * 
- * Return: o 
+ * Return: o-success
  */
 int main(int argc, char *argv[])
 {
