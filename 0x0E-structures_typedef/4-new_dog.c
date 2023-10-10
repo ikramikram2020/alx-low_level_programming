@@ -1,78 +1,49 @@
 #include "dog.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _strlen - returns the length of a string.
- * @s: pointer to the string.
- * Return: length of the string.
+ * new_dog - Function that creates a new dog.
+ * @name: type pointer char name.
+ * @age: type pointer float age
+ * @owner: type pointer char owner
+ * Return: 0.
  */
-
-int _strlen(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-
-/**
- * _strcpy - copies the string pointed to by src
- * including the terminating null byte (\0)
- * to the buffer pointed to by dest.
- * @dest: pointer to the buffer.
- * @src: pointer to the string source.
- * Return: the pointer to dest.
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-/**
- * new_dog - creates a new dog struct.
- * store a copy of name and owner
- * @name: pointer to string.
- * @owner: pointer to string.
- * @age: float.
- * Return: new created struct new_struct, NULL if it fails.
- */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_struct;
+	struct dog *django;
+	char *i, *j;
+	int x, y, z;
 
-	if (!name || !owner || age < 0)
+	django = malloc(sizeof(struct dog));
+	if (django == NULL)
 		return (NULL);
-	new_struct = malloc(sizeof(dog_t));
-	if (!new_struct)
-		return (NULL);
-	new_struct->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (!new_struct->name)
+
+	for (x = 0; *(name + x) != '\0'; x++)
+		;
+	for (y = 0; *(owner + y) != '\0'; y++)
+		;
+	i = malloc(sizeof(char) * x + 1);
+	if (i == NULL)
 	{
-		free(new_struct);
+		free(django);
 		return (NULL);
 	}
-	new_struct->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (!new_struct->owner)
+	j = malloc(sizeof(char) * y + 1);
+	if (j == NULL)
 	{
-		free(new_struct->name);
-		free(new_struct);
+		free(i);
+		free(django);
 		return (NULL);
 	}
-	_strcpy(new_struct->name, name);
-	_strcpy(new_struct->owner, owner);
-	new_struct->age = age;
-	return (new_struct);
+	for (z = 0; z <= x; z++)
+		*(i + z) = *(name + z);
+	for (z = 0; z <= y; z++)
+		*(j + z) = *(owner + z);
+
+	django->name = i;
+	django->age = age;
+	django->owner = j;
+
+	return (django);
 }
