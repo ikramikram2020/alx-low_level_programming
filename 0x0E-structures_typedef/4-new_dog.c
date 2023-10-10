@@ -1,49 +1,47 @@
-#include "dog.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "dog.h"
 
 /**
- * new_dog - Function that creates a new dog.
- * @name: type pointer char name.
- * @age: type pointer float age
- * @owner: type pointer char owner
- * Return: 0.
+ * new_dog - creates a new dog
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: owner of dog
+ *
+ * Return: pointer to new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct dog *django;
-	char *i, *j;
-	int x, y, z;
+	unsigned int nl, ol, i;
+	dog_t *dog;
 
-	django = malloc(sizeof(struct dog));
-	if (django == NULL)
+	if (name == NULL || owner == NULL)
 		return (NULL);
-
-	for (x = 0; *(name + x) != '\0'; x++)
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
+		return (NULL);
+	for (nl = 0; name[nl]; nl++)
 		;
-	for (y = 0; *(owner + y) != '\0'; y++)
-		;
-	i = malloc(sizeof(char) * x + 1);
-	if (i == NULL)
+	nl++;
+	dog->name = malloc(nl * sizeof(char));
+	if (dog->name == NULL)
 	{
-		free(django);
+		free(dog);
 		return (NULL);
 	}
-	j = malloc(sizeof(char) * y + 1);
-	if (j == NULL)
+	for (i = 0; i < nl; i++)
+		dog->name[i] = name[i];
+	dog->age = age;
+	for (ol = 0; owner[ol]; ol++)
+		;
+	ol++;
+	dog->owner = malloc(ol * sizeof(char));
+	if (dog->owner == NULL)
 	{
-		free(i);
-		free(django);
+		free(dog->name);
+		free(dog);
 		return (NULL);
 	}
-	for (z = 0; z <= x; z++)
-		*(i + z) = *(name + z);
-	for (z = 0; z <= y; z++)
-		*(j + z) = *(owner + z);
-
-	django->name = i;
-	django->age = age;
-	django->owner = j;
-
-	return (django);
+	for (i = 0; i < ol; i++)
+		dog->owner[i] = owner[i];
+	return (dog);
 }
