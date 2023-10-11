@@ -1,29 +1,52 @@
-#include <stdlib.h>
 #include "3-calc.h"
 
 /**
- * get_op_func - function to select correct operation function
- * @s: operation given (+, *, -, /, %)
- * Return: pointer to correct operation function (0-4)
+ * op_add - check the code
+ * @a: size of triangle
+ * @b: size of triangle
+ * Return: Always 0.
  */
-
-int (*get_op_func(char *s))(int a, int b)
+int op_add(int a, int b)
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
-	int i = 0;
-
-	while (ops[i].op != NULL)
-	{
-		if (*s == *ops[i].op)
-			return (ops[i].f);
-		i++;
-	}
-	return (NULL);
+	return (a + b);
+}
+/**
+ * op_sub - check the code
+ * @a: size of triangle
+ * @b: size of triangle
+ * Return: Always 0.
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+/**
+ * op_mul - check the code
+ * @a: size of triangle
+ * @b: size of triangle
+ * Return: Always 0.
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+/**
+ * op_div - check the code
+ * @a: size of triangle
+ * @b: size of triangle
+ * Return: Always 0.
+ */
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+/**
+ * op_mod - check the code
+ * @a: size of triangle
+ * @b: size of triangle
+ * Return: Always 0.
+ */
+int op_mod(int a, int b)
+{
+	return (a % b);
 }
