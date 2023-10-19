@@ -1,17 +1,20 @@
 #include "lists.h"
 
 /**
- * free_list - wipes all the elements of a list from memory
- * @head: a pointer to the first element of the list
- *
- * Return: Nothing
-*/
+ * free_list - deletes all the elements of the Linkedlist
+ * @head: pointer to the header of the linked List
+ * Return: void
+ */
 void free_list(list_t *head)
 {
-	if (head->next != NULL)
+	list_t *current = head;
+	list_t *next;
+
+	while (current != NULL)
 	{
-		free_list((head->next));
+		next = current->next;
+		free(current->str);
+		free(current);
+		current = next;
 	}
-	free(head->str);
-	free(head);
 }
